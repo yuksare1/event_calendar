@@ -1,11 +1,12 @@
 var app = angular.module("poe_calendar",[]);
 app.controller('poeController',function poeController($scope) {
   $scope.list = list;
-  $scope.selection = $scope.types();
-  
+
   $scope.types = function(){
    return _.keys(_.groupBy(this.list,function(item){return item.type;}));
   };
+
+  $scope.selection = $scope.types();
 
   $scope.toggleSelection = function (typeName) {
 var idx = $scope.selection.indexOf(typeName);
