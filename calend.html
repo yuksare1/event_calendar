@@ -19,7 +19,7 @@
 <td>Date</td><td>Type</td><td>Name</td><td>Url</td>
 </tr>
 <tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction(fltr)' class="{{item.type}}">
-<td>{{item.date}}</td><td>{{item.type}}</td><td>{{item.name}}</td><td><a href="{{item.url}}">forum link</a></td>
+<td>{{item.date}}</td><td>{{item.type}}</td><td>{{item.name}}</td><td><a ng-show="item.url" href="{{item.url}}">forum link</a></td>
 </tr>
 
 </table>
