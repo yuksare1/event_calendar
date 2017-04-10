@@ -16,7 +16,7 @@
 </style>
 </head>
 <body ng-controller="poeController">
-<span  ng-repeat="type in types()">
+<span  ng-repeat="type in types()" class="type{{types().indexOf(type)}}">
 
  <input type="checkbox" name="selectedTypes[]" ng-checked="selection.indexOf(type) > -1" ng-click="toggleSelection(type)"">{{type}}
 </span>
