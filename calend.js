@@ -8,7 +8,7 @@ app.controller('poeController',function poeController($scope) {
   };
 
   $scope.toggleSelection = function (typeName) {
-    var idx = $scope.selection.indexOf(typeName);
+var idx = $scope.selection.indexOf(typeName);
  if (idx > -1) {
       $scope.selection.splice(idx, 1);
     }
