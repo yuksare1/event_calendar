@@ -7,6 +7,13 @@
  <script src="underscore-min.js"></script>
  <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
  <script src="calend.js"></script>
+<style>
+.type0 {background-color:purple;}
+.type1 {background-color:cyan;}
+.type2 {background-color:red;}
+.type3 {background-color:yellow;}
+.type4 {background-color:green;}
+</style>
 </head>
 <body ng-controller="poeController">
 <span  ng-repeat="type in types()">
@@ -16,10 +23,14 @@
 
 <table>
 <tr>
-<td>Date</td><td>Type</td><td>Name</td><td>Url</td>
+<td>Date</td><td>Type</td><td>Name</td>
 </tr>
-<tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction(fltr)' class="{{item.type}}">
-<td>{{item.date}}</td><td>{{item.type}}</td><td>{{item.name}}</td><td><a ng-show="item.url" href="{{item.url}}">forum link</a></td>
+<tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction(fltr)' class="type{{types().indexOf(item.type)}}">
+<td>{{item.date}}</td>
+<td>{{item.type}}</td>
+<td><a ng-show="item.url" href="{{item.url}}">{{item.name}}</a>
+    <span ng-hide="item.url"> {{item.name}}</span>
+</td>
 </tr>
 
 </table>
