@@ -8,13 +8,16 @@
  <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
  <script src="calend.js"></script>
 <style>
-.type0 {background-color:purple;}
-.type1 {background-color:cyan;}
-.type2 {background-color:red;}
-.type3 {background-color:yellow;}
-.type4 {background-color:green;}
+.type0 {background-color:#BAFFAE;}
+.type1 {background-color:#FF6C6C;}
+.type2 {background-color:#FFFBA2;}
+.type3 {background-color:#C4EFFF;}
+.type4 {background-color:red;}
+body {
+	background-color: #F1F1F1;
+}
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <center>
 <br>
@@ -37,22 +40,23 @@
 
 <h2 align="center"> Календарь событий 2017</h2>
 <hr width="70%">
-<p>&nbsp;</p>
-<table width="80%" align="center" border="0" cellspacing="2" bgcolor="#CCCCCC">
+<h3 align="center">Январь</h3>
+<table width="80%" border="0" align="center" cellspacing="0" bgcolor="#999999">
 <tr>
 <td><b>Тип события </b></td>
 <td><b> Дата начала</b> </td>
-<td> <b>Название события </b></td>
+<td > <b>Название события </b></td>
 </tr>
 <tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction(fltr)' class="type{{types().indexOf(item.type)}}">
 <td>{{item.type}}</td>
 <td>{{item.date}}</td>
-<td><a ng-show="item.url" href="{{item.url}}">{{item.name}}</a>
-    <span ng-hide="item.url"> {{item.name}}</span>
-</td>
+<td><a ng-show="item.url" href="{{item.url}}" target="_blank">{{item.name}}</a>
+    <span ng-hide="item.url"> {{item.name}}</span></td>
 </tr>
 </table>
 <br>
+<br>
+
 <hr width="70%">
 
 </body>
