@@ -26,13 +26,12 @@ body {
 <br>
 <br>
 
-<body ng-controller="poeController">
+<body ng-controller="poeController" ng-init="monthes=[{id:1,name:'jan'},{id:2,name:'feb'},{id:3,name:'mar'},{id:4,name:'apr'},{id:5,name:'may'},{id:6,name:'may'},{id:7,name:'may'},{id:8,name:'may'},{id:9,name:'may'},{id:10,name:'may'},{id:11,name:'may'},{id:12,name:'may'}]">
+
 <span  ng-repeat="type in types()" class="type{{types().indexOf(type)}}">
-
-
-
- <input type="checkbox" name="selectedTypes[]" ng-checked="selection.indexOf(type) > -1" ng-click="toggleSelection(type)"">{{type}}
+<input type="checkbox" name="selectedTypes[]" ng-checked="selection.indexOf(type) > -1" ng-click="toggleSelection(type)"">{{type}}
 </span>
+
 <br>
 <br>
 </center>
@@ -40,20 +39,22 @@ body {
 
 <h2 align="center"> Календарь событий 2017</h2>
 <hr width="70%">
-<h3 align="center">Январь</h3>
+<span ng-repeat="month in monthes">
+<h3 align="center">{{month.name}}</h3>
 <table width="80%" border="0" align="center" cellspacing="0" bgcolor="#999999">
 <tr>
 <td><b>Тип события </b></td>
 <td><b> Дата начала</b> </td>
 <td > <b>Название события </b></td>
 </tr>
-<tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction(fltr)' class="type{{types().indexOf(item.type)}}">
+<tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction' class="type{{types().indexOf(item.type)}}"  ng-show="(item.date | date: 'M') == month.id)">
 <td>{{item.type}}</td>
 <td>{{item.date}}</td>
 <td><a ng-show="item.url" href="{{item.url}}" target="_blank">{{item.name}}</a>
     <span ng-hide="item.url"> {{item.name}}</span></td>
 </tr>
 </table>
+</span>
 <br>
 <br>
 
