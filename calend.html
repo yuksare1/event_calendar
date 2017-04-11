@@ -26,7 +26,7 @@ body {
 <br>
 <br>
 
-<body ng-controller="poeController" ng-init="monthes=[{id:1,name:'jan'},{id:2,name:'feb'},{id:3,name:'mar'},{id:4,name:'apr'},{id:5,name:'may'},{id:6,name:'may'},{id:7,name:'may'},{id:8,name:'may'},{id:9,name:'may'},{id:10,name:'may'},{id:11,name:'may'},{id:12,name:'may'}]">
+<body ng-controller="poeController" ng-init="monthes=[{id:1,name:'Январь'},{id:2,name:'Февраль'},{id:3,name:'Март'},{id:4,name:'Апрель'},{id:5,name:'Май'},{id:6,name:'Июнь'},{id:7,name:'Июль'},{id:8,name:'Август'},{id:9,name:'Сентябрь'},{id:10,name:'Октябрь'},{id:11,name:'Ноябрь'},{id:12,name:'Декабрь'}]">
 
 <span  ng-repeat="type in types()" class="type{{types().indexOf(type)}}">
 <input type="checkbox" name="selectedTypes[]" ng-checked="selection.indexOf(type) > -1" ng-click="toggleSelection(type)"">{{type}}
@@ -49,7 +49,7 @@ body {
 </tr>
 <tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction' class="type{{types().indexOf(item.type)}}"  ng-show="(item.date | date: 'M') == month.id">
 <td>{{item.type}}</td>
-<td>{{item.date}}</td>
+<td>{{item.date | date: "dd-MM-yyyy"}}</td>
 <td><a ng-show="item.url" href="{{item.url}}" target="_blank">{{item.name}}</a>
     <span ng-hide="item.url"> {{item.name}}</span></td>
 </tr>
