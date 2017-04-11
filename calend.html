@@ -5,7 +5,7 @@
  <title>calendar</title>
  <script src="list.js"></script>
  <script src="underscore-min.js"></script>
- <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
  <script src="calend.js"></script>
 <style>
 .type0 {background-color:#BAFFAE;}
@@ -47,7 +47,7 @@ body {
 <td><b> Дата начала</b> </td>
 <td > <b>Название события </b></td>
 </tr>
-<tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction' class="type{{types().indexOf(item.type)}}"  ng-show="(item.date | date: 'M') == month.id)">
+<tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction' class="type{{types().indexOf(item.type)}}"  ng-show="(item.date | date: 'M') == month.id">
 <td>{{item.type}}</td>
 <td>{{item.date}}</td>
 <td><a ng-show="item.url" href="{{item.url}}" target="_blank">{{item.name}}</a>
