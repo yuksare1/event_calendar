@@ -50,7 +50,7 @@ body {
 <tr ng-repeat='item in list | orderBy : "date" | filter : filterFunction' class="type{{types().indexOf(item.type)}}"  ng-if="(item.date | date: 'M') == month.id">
 <td>{{item.type}}</td>
 <td>{{item.date | date: "dd-MM-yyyy"}}</td>
-<td><a ng-show="item.url" href="{{item.url}}" target="_blank">{{item.name}}</a>
+<td><a ng-if="item.url" href="{{item.url}}" target="_blank">{{item.name}}</a>
     <span ng-hide="item.url"> {{item.name}}</span></td>
 </tr>
 </table>
